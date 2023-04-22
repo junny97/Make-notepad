@@ -3,8 +3,12 @@ const memoContainer = document.querySelector(".memo-container");
 
 
 // "data"라는 key를 가진 값이 있으면 그 값을 JSON.parse를 통해 배열 형태로 파싱하여 data 변수에 할당하고, 값이 없는 경우 빈 배열을 할당합니다.
-let data = JSON.parse(localStorage.getItem("data")) || [];
+// let data = JSON.parse(localStorage.getItem("data")) || [];
  // 메모 데이터를 저장할 배열
+ let data = [];
+ if(localStorage.getItem("data")){
+    data = JSON.parse(localStorage.getItem("data"));
+ }
 
 
 addNoteBtn.addEventListener("click", () => {
@@ -56,10 +60,10 @@ addNoteBtn.addEventListener("click", () => {
     }
   });
 
-  // const collapseBtn = memo.querySelector(".collapse-btn");
-  // collapseBtn.addEventListener("click", () => {
-  //   memo.classList.toggle("collapsed");
-  // });
+  const collapseBtn = memo.querySelector(".collapse-btn");
+  collapseBtn.addEventListener("click", () => {
+    memo.classList.toggle("collapsed");
+  });
 
 });
 
