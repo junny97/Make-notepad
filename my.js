@@ -17,7 +17,7 @@ addNoteBtn.addEventListener("click", () => {
   memo.innerHTML = `
     <textarea class="memo-textContent"></textarea>
     <div class="add-remove-Btn"> 
-      <button class="submit-btn" type="submit">작성완료</button>
+      <button class="submit-btn" type="button">작성완료</button>
       <button class="delete-btn" type="button">삭제하기</button>
     </div>
     <div class="pin-collapse-Btn"> 
@@ -30,7 +30,7 @@ addNoteBtn.addEventListener("click", () => {
   memoContainer.classList.add("memo-container-change");
 
   memoContainer.style.display = "grid";
-  memoContainer.style.gridAutoRows = "max-content";
+  memoContainer.style. gridAutoRows= "max-content";
   memoContainer.style.gridTemplateColumns = "repeat(auto-fill, minmax(300px, 1fr))";
 
   const memoTextarea = memo.querySelector("textarea");
@@ -60,10 +60,10 @@ addNoteBtn.addEventListener("click", () => {
     }
   });
 
-  const collapseBtn = memo.querySelector(".collapse-btn");
-  collapseBtn.addEventListener("click", () => {
-    memo.classList.toggle("collapsed");
-  });
+  // const collapseBtn = memo.querySelector(".collapse-btn");
+  // collapseBtn.addEventListener("click", () => {
+  //   memo.classList.toggle("collapsed");
+  // });
 
 });
 
