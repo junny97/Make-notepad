@@ -38,15 +38,6 @@ header{
 
 
   .memo {
-    /* position: absolute;
-        top: 70%;
-        left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border-radius: 4px;
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease; */
     position: relative;
     background-color: #FFBB3F;
     border: 1px solid #c2c2c2;
@@ -85,11 +76,7 @@ header{
 }
 
 
-    
-/* .memo.submit-btn{}
-  .memo.pin {
-    position: fixed;
-  } */
+
 
 
   /* 포스트잇 html css */
