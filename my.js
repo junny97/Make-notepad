@@ -41,18 +41,19 @@ function createMemo(memoTextContent) {
     }
   });
 
+  //메모 삭제 버튼 메모 자체와 data 둘 다 삭제
   const deleteBtn = memo.querySelector(".delete-btn");
   deleteBtn.addEventListener("click", () => {
     const confirmed = confirm("정말 메모를 삭제하시겠습니까?");
     if (confirmed) {
-      memo.remove();
-      const memoTextContent = memoTextarea.value.trim();
-      const index = data.indexOf(memoTextContent);
-      if (index !== -1) {
-        data.splice(index, 1);
-        localStorage.setItem("data", JSON.stringify(data));
-      }
+      memo.remove(); //메모 삭제
+      const memoTextContent = memoTextarea.value.trim(); 
+      const index = data.indexOf(memoTextContent);  //indexOf로 data 내에 값을 확인하고  index 매개변수에 저장 
+      if (index !== -1) { // -1이 아니라면 => 해당 내용이 아직 배열안에 존재 한다는 뜻
+        data.splice(index, 1); // index가 위치한값부터 1개의 값을 삭제 
+        localStorage.setItem("data", JSON.stringify(data)); //삭제된 값이 로컬스토리지에도 적용되게 설정, 새로고침 후에도 삭제된 상태가 유지되게 수정 완료
     }
+  }
   });
 
   const collapseBtn = memo.querySelector(".collapse-btn");
