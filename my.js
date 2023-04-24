@@ -3,10 +3,8 @@ const memoContainer = document.querySelector(".memo-container");
 
 let data = JSON.parse(localStorage.getItem("data")) || [];
 
-
 // 포스트잇 메모지 생성 함수 분리
 function createMemo(memoTextContent) {
-
   //fragment를 사용하면 여러 번 DOM에 추가되는 것이 아니라 한 번에 추가가 가능하다
   const fragment = new DocumentFragment();
 
@@ -27,18 +25,9 @@ function createMemo(memoTextContent) {
   fragment.appendChild(memo);
   memoContainer.appendChild(fragment);
   memoContainer.classList.add("memo-container-change");
-  // memoContainer.appendChild(memo);
-  memoContainer.style.display = "grid";
-  memoContainer.style.gridAutoRows = "max-content";
-  memoContainer.style.gridTemplateColumns = "repeat(auto-fill, minmax(300px, 1fr))";
 
   const memoTextarea = memo.querySelector("textarea");
   // memoTextarea.focus();
-
-  // const pinBtn = memo.querySelector(".pin-btn");
-  // pinBtn.addEventListener("click", () => {
-  //   memo.classList.toggle("pin");
-  // });
 
   const submitBtn = memo.querySelector(".submit-btn");
   submitBtn.addEventListener("click", () => {
@@ -49,7 +38,6 @@ function createMemo(memoTextContent) {
       alert("메모가 성공적으로 저장되었습니다!");
     } else {
       alert("메모를 작성해주세요!");
-     
     }
   });
 
@@ -60,21 +48,21 @@ function createMemo(memoTextContent) {
       memo.remove();
       const memoTextContent = memoTextarea.value.trim();
       const index = data.indexOf(memoTextContent);
-      if (index!== -1) {
+      if (index !== -1) {
         data.splice(index, 1);
         localStorage.setItem("data", JSON.stringify(data));
       }
     }
   });
 
-
   const collapseBtn = memo.querySelector(".collapse-btn");
   collapseBtn.addEventListener("click", () => {
+    //memo박스의 클래스 속성값에 toggle을 줘 collapsed가 없으면 넣어주고 있으면 제거합니다
     memo.classList.toggle("collapsed");
   });
 }
 
-// 저장된 메모 데이터를 이용해서 초기화면에 렌더링하는 함수 
+// 저장된 메모 데이터를 이용해서 초기화면에 렌더링하는 함수
 function renderMemos() {
   data.forEach((memoTextContent) => {
     createMemo(memoTextContent);
@@ -84,9 +72,6 @@ function renderMemos() {
 // 초기화면 렌더링
 renderMemos();
 
-
 addNoteBtn.addEventListener("click", () => {
   createMemo("");
 });
-
-
