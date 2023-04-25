@@ -25,8 +25,10 @@ function createMemo(memoTextContent) {
   memoContainer.appendChild(fragment);
   memoContainer.classList.add("memo-container-change");
 
-  const memoTextarea = memo.querySelector("textarea");
 
+  const memoTextarea = memo.querySelector("textarea");
+  
+   //메모 저장 함수
   function saveMemo() {
     const memoTextContent = memoTextarea.value.trim();
     if (memoTextContent) {
@@ -38,11 +40,14 @@ function createMemo(memoTextContent) {
     }
   }
 
-  const submitBtn = memo.querySelector(".submit-btn");
-  submitBtn.addEventListener("click", saveMemo);
+  //메모 수정함수
+  function modifyMemo() {
+   
 
-  const deleteBtn = memo.querySelector(".delete-btn");
-  deleteBtn.addEventListener("click", () => {
+  }
+
+//메모 삭제 함수
+  function deleteMemo() {
     const confirmed = confirm("정말 메모를 삭제하시겠습니까?");
     if (confirmed) {
       memo.remove();
@@ -53,7 +58,16 @@ function createMemo(memoTextContent) {
         localStorage.setItem("data", JSON.stringify(data));
       }
     }
-  });
+  }
+
+  const submitBtn = memo.querySelector(".submit-btn");
+  submitBtn.addEventListener("click", saveMemo);
+
+  const modifyBtn = memo.querySelector(".modify-btn");
+  modifyBtn.addEventListener("click", modifyMemo);
+
+  const deleteBtn = memo.querySelector(".delete-btn");
+  deleteBtn.addEventListener("click", deleteMemo);
 
   const collapseBtn = memo.querySelector(".collapse-btn");
   collapseBtn.addEventListener("click", () => {
