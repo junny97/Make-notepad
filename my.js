@@ -2,7 +2,7 @@ const addNoteBtn = document.querySelector(".add-note-btn");
 const memoContainer = document.querySelector(".memo-container");
 let data = JSON.parse(localStorage.getItem("data")) || [];
 
-
+//m1 new
 //메모 색 설정 랜덤함수
 function getRandomColor() {
   const colors = ["#FFBB3F", "#F6D55C", "#F5AB99", "#FEB47B"];
